@@ -47,4 +47,4 @@ Incomplete:
 - GUI for speech input and modulated speech output
 - Headphone confirmation for speech input and modulated speech output
 
-Notes: see /CD/code/chapter_13/ccs/AMtx/ISR_Table.c for how to do AM
+Notes: see /CD/code/chapter_13/ccs/AMtx/ISR_Table.c for how to do AM (textbook 15.4)
