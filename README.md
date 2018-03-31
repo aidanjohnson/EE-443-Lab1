@@ -1,6 +1,6 @@
 # EE-443-Lab1
 
-# Problem 1
+## Problem 1
 Status: In Progress
 
 Complete:
@@ -13,21 +13,21 @@ Incomplete:
 - Check with oscilloscope
 - Rigorous debugging (e.g. break points, watch variables)
 
-# Problem 2
+## Problem 2
 Status: Completed
 
 Complete:
 - DIP switch control of sine wave line output
 - DIP switch control of LED inidcators
 
-# Problem 3
+## Problem 3
 Status: Completed
 
 Complete:
 - DIP switch control of line output channels
 - DIP switchh control of LED indicators
 
-# Problem 4
+## Problem 4
 Status: In Progress
 
 Complete:
@@ -39,7 +39,7 @@ Incomplete:
 - GUI with dial control and plot (link to global variables)
 - Confirmation with oscilloscope
 
-# Problem 5
+## Problem 5
 Status: Not Started
 
 Incomplete:
