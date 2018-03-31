@@ -47,4 +47,4 @@ Incomplete:
 - GUI for speech input and modulated speech output
 - Headphone confirmation for speech input and modulated speech output
 
-Notes: see /CD/code/chapter_13/ccs/AMtx/ISR_Table.c for how to do AM (textbook chap. 15.4 in 3rd ed. and chap. 13.4 in 2nd ed.)
+Notes: see /CD/code/chapter_13/ccs/AMtx/ISR_Table.c for how to do AM (textbook chap. 15.4 in 3rd ed. and chap. 13.4 in [2nd ed.](https://doc.lagout.org/programmation/Multi-Language/Real-Time%20Digital%20Signal%20Processing%20from%20MATLAB%20to%20C%20with%20the%20TMS320C6x%20DSPs%20%282nd%20ed.%29%20%5BWelch%2C%20Wright%20%26%20Morrow%202011-12-22%5D.pdf))
