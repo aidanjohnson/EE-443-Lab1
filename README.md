@@ -40,7 +40,7 @@ Incomplete:
 - Confirmation with oscilloscope
 
 ## Problem 5
-Status: Not Started
+Status: In Progress
 
 Incomplete:
 - Amplitude Modulation (AM) of input speech signal (real-time with microphone)
