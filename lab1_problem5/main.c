@@ -10,7 +10,7 @@
 
 #include "DSP_Config.h"   
 
-Int GUI_out;
+float GUI_out[300];
 
 int main()
 {
