@@ -23,6 +23,7 @@ volatile union {
 	Int16 Channel[2];
 } CodecDataIn, CodecDataOut;
 
+int volume = 100;
 int ii=0;
 // samples per period = (sampling frequency)/(sine frequency)
 // 10 = 12 kHz / 1.2 kHz = number of samples
@@ -44,7 +45,7 @@ interrupt void Codec_ISR()
 ///////////////////////////////////////////////////////////////////////
 
 	CodecDataOut.Channel[LEFT] = 0; // zero out the lower 2 bytes
-	CodecDataOut.Channel[RIGHT]= sinewave[ii++]; // upper 2 bytes
+	CodecDataOut.Channel[RIGHT]= volume*sinewave[ii++]; // upper 2 bytes
 	if(ii>9) ii=0; // number of samples - 1
 
 	WriteCodecData(CodecDataOut.ABC);// send output data to port
