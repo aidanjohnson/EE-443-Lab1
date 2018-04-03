@@ -23,19 +23,19 @@ OBJS += \
 ./vectors.obj 
 
 ASM_DEPS += \
-./vectors.d 
+./vectors.pp 
 
 C_DEPS += \
-./ISRs.d \
-./LCDK_Support_DSP.d \
-./StartUp.d \
-./main.d 
+./ISRs.pp \
+./LCDK_Support_DSP.pp \
+./StartUp.pp \
+./main.pp 
 
 C_DEPS__QUOTED += \
-"ISRs.d" \
-"LCDK_Support_DSP.d" \
-"StartUp.d" \
-"main.d" 
+"ISRs.pp" \
+"LCDK_Support_DSP.pp" \
+"StartUp.pp" \
+"main.pp" 
 
 OBJS__QUOTED += \
 "ISRs.obj" \
@@ -45,7 +45,7 @@ OBJS__QUOTED += \
 "vectors.obj" 
 
 ASM_DEPS__QUOTED += \
-"vectors.d" 
+"vectors.pp" 
 
 C_SRCS__QUOTED += \
 "../ISRs.c" \

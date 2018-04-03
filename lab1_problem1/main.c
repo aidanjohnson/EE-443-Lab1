@@ -10,7 +10,7 @@
 
 #include "DSP_Config.h"   
 
-Int volume = 0;
+Int volume_gui = 0;
 Int GUI_out;
 
 int main()
