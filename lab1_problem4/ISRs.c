@@ -27,14 +27,14 @@ volatile union {
 extern int alpha;
 extern int beta;
 extern int gamma;
-extern int GUI_out;
+extern float GUI_out[300];
 
 #define NumTableEntries 100
-const float Pi = 3.1415927;
 float f1 = 12000.0;
 float f2 = 8000.0;
 float f3 = 4800.0;
 float SineTable[NumTableEntries];
+int itr = 0;
 
 void FillSineTable()
 {
@@ -91,9 +91,10 @@ interrupt void Codec_ISR()
 		CodecDataOut.Channel[LEFT] = out;
 		CodecDataOut.Channel[RIGHT] = CodecDataOut.Channel[LEFT]; /* copy the left channel to the right channel  */
 
-		GUI_out = out;
+		GUI_out[itr++] = out;
+		if (itr > 300)
+			itr = 0;
 
 		WriteCodecData(CodecDataOut.UINT);		// send output data to  portort
 
 }
-
