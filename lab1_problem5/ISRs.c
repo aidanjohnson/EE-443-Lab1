@@ -10,7 +10,7 @@
 
 #include "DSP_Config.h" 
 #include <math.h>
-  
+
 // Data is received as 2 16-bit words (left/right) packed into one
 // 32-bit word.  The union allows the data to be accessed as a single 
 // entity when transferring to and from the serial port, but still be 
@@ -34,12 +34,17 @@ const float Pi = 3.1415927;
 float desiredFreq = 800.0;
 Int32 bias = 32768;
 float SineTable[NumTableEntries];
+int itr = 0;
+int gain = 1000000;
+
+// GUI variables
+extern float GUI_out[300];
 
 void FillSineTable()
 {
 	Int32 i;
 
-	for(i = 0;i < NumTableEntries;i++)
+	for(i = 0; i < NumTableEntries; i++)
 		SineTable[i] = sinf(i * (float)(6.283185307 / NumTableEntries));
 }
 
@@ -65,8 +70,6 @@ interrupt void Codec_ISR()
 
   	CodecDataIn.UINT = ReadCodecData();		// get input data samples
 
-	/* add your code starting here */
-
 	index += desiredFreq;	/* calculate the next phase  */
 	if (index >= GetSampleFreq()) 	/* maintain the phase between 0 and 2*pi  */
 		index -= GetSampleFreq();
@@ -75,7 +78,9 @@ interrupt void Codec_ISR()
 	CodecDataOut.Channel[LEFT] = (float) 0.5*(bias + CodecDataIn.Channel[LEFT])*sine; // AM generation
 	CodecDataOut.Channel[RIGHT] = CodecDataOut.Channel[LEFT]; /* copy the left channel to the right channel  */
 
-	/* end your code here */
+	GUI_out[itr++] = CodecDataOut.Channel[LEFT];
+	if (itr > 300)
+		itr = 0;
 
 	WriteCodecData(CodecDataOut.UINT);		// send output data to  port
 }
