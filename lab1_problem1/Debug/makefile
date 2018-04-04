@@ -2,7 +2,9 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-CG_TOOL_ROOT := /opt/ti/ccsv6/tools/compiler/c6000_7.4.16
+SHELL = cmd.exe
+
+CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/c6000_7.4.14
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -15,12 +17,12 @@ ORDERED_OBJS += \
 "./vectors.obj" \
 "../link6748.cmd" \
 $(GEN_CMDS__FLAG) \
--llibc.a \
+-l"libc.a" \
 
 -include ../makefile.init
 
-RM := rm -rf
-RMDIR := rm -rf
+RM := DEL /F
+RMDIR := RMDIR /S/Q
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -46,9 +48,6 @@ ifneq ($(strip $(ASM_DEPS)),)
 endif
 ifneq ($(strip $(CC_DEPS)),)
 -include $(CC_DEPS)
-endif
-ifneq ($(strip $(SV7A_DEPS)),)
--include $(SV7A_DEPS)
 endif
 ifneq ($(strip $(S55_DEPS)),)
 -include $(S55_DEPS)
@@ -141,22 +140,22 @@ all: lab1_problem1.out
 lab1_problem1.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C6000 Linker'
-	"/opt/ti/ccsv6/tools/compiler/c6000_7.4.16/bin/cl6x" -mv6740 --abi=coffabi -g --display_error_number --diag_warning=225 --diag_wrap=off -z -m"lab1_problem1.map" -i"/opt/ti/ccsv6/tools/compiler/c6000_7.4.16/lib" -i"/opt/ti/ccsv6/tools/compiler/c6000_7.4.16/include" --reread_libs --display_error_number --diag_wrap=off --warn_sections --xml_link_info="lab1_problem1_linkInfo.xml" --rom_model -o "lab1_problem1.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv6/tools/compiler/c6000_7.4.14/bin/cl6x" -mv6740 --abi=coffabi -g --display_error_number --diag_warning=225 --diag_wrap=off -z -m"lab1_problem1.map" -i"C:/ti/ccsv6/tools/compiler/c6000_7.4.14/lib" -i"C:/ti/ccsv6/tools/compiler/c6000_7.4.14/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="lab1_problem1_linkInfo.xml" --rom_model -o "lab1_problem1.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 lab1_problem1.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: C6000 Hex Utility'
-	"/opt/ti/ccsv6/tools/compiler/c6000_7.4.16/bin/hex6x"  -o "lab1_problem1.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv6/tools/compiler/c6000_7.4.14/bin/hex6x"  -o "lab1_problem1.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "ISRs.d" "LCDK_Support_DSP.d" "StartUp.d" "main.d" 
+	-$(RM) "ISRs.pp" "LCDK_Support_DSP.pp" "StartUp.pp" "main.pp" 
 	-$(RM) "ISRs.obj" "LCDK_Support_DSP.obj" "StartUp.obj" "main.obj" "vectors.obj" 
-	-$(RM) "vectors.d" 
+	-$(RM) "vectors.pp" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
