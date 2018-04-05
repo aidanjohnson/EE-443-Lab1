@@ -28,25 +28,16 @@ volatile union {
 /* add any global variables here */
 
 // declared at file scope for visibility
-#define NumTableEntries 100
+#define NumTableEntries 30 // no. points = 24000/800 = Fs/f
 #define Phase 0.0
-const float Pi = 3.1415927;
 float desiredFreq = 800.0;
-Int32 bias = 32768;
-float SineTable[NumTableEntries];
+float SineTable[NumTableEntries] = {0,208,407,588,743,866,951,995,995,951,866,743,588,407,208,0,-208,-407,-588,-743,-866,-951,-995,-995,-951,-866,-743,-588,-407,208};
 int itr = 0;
-int gain = 1000000;
+int bias = 665;
+int gain = 1000;
 
 // GUI variables
 extern float GUI_out[300];
-
-void FillSineTable()
-{
-	Int32 i;
-
-	for(i = 0; i < NumTableEntries; i++)
-		SineTable[i] = sinf(i * (float)(6.283185307 / NumTableEntries));
-}
 
 interrupt void Codec_ISR()
 ///////////////////////////////////////////////////////////////////////
@@ -75,7 +66,8 @@ interrupt void Codec_ISR()
 		index -= GetSampleFreq();
 
 	sine = SineTable[(Int32)(index / GetSampleFreq() * NumTableEntries)];
-	CodecDataOut.Channel[LEFT] = (float) 0.5*(bias + CodecDataIn.Channel[LEFT])*sine; // AM generation
+	float input = (float) CodecDataIn.Channel[LEFT] - bias;
+	CodecDataOut.Channel[LEFT] = (short) input*sine/gain; // AM generation
 	CodecDataOut.Channel[RIGHT] = CodecDataOut.Channel[LEFT]; /* copy the left channel to the right channel  */
 
 	GUI_out[itr++] = CodecDataOut.Channel[LEFT];
