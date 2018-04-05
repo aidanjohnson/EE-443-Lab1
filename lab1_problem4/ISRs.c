@@ -65,6 +65,8 @@ interrupt void Codec_ISR()
 		static float index3 = 0;
 		float out;
 
+		ReadCodecData();
+
 	 	if(CheckForOverrun())					// overrun error occurred (i.e. halted DSP)
 			return;								// so serial port is reset to recover
 

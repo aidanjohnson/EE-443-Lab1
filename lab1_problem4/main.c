@@ -10,9 +10,9 @@
 
 #include "DSP_Config.h"   
 
-int alpha = 1;
-int beta = 1;
-int gamma = 1;
+int alpha = 0;
+int beta = 0;
+int gamma = 0;
 float GUI_out[300];
 
 int main()
