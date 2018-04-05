@@ -9,7 +9,6 @@
 ///////////////////////////////////////////////////////////////////////
 
 #include "DSP_Config.h" 
-#include <math.h>
 
 // Data is received as 2 16-bit words (left/right) packed into one
 // 32-bit word.  The union allows the data to be accessed as a single 
